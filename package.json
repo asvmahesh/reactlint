@@ -27,7 +27,7 @@
   "jest-junit": {
     "output": "output/coverage/junit/junit.xml",
     "usePathForSuiteName": "true"
-  }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
