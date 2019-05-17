@@ -131,6 +131,7 @@
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
     "testResultsProcessor": "jest-junit",
+    "testRegex": "(/test/.*\\.spec\\.js)$",
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -138,7 +139,6 @@
         "lines": 100,
         "statements": 100
       }  
-    "testRegex": "(/test/.*\\.spec\\.js)$",
   },
   "sideEffects": false
 }
