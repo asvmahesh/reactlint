@@ -43,6 +43,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:cov": "npm test -- --coverage",
+	"test:covout": "jest --coverage --coverageDirectory=output/coverage/jest",
     "build": "rollup -c",
     "prepare": "npm run clean && npm run format:check && npm run lint && npm test",
     "examples:lint": "eslint examples",
@@ -53,6 +54,10 @@
     "symbol-observable": "^1.2.0"
   },
   "devDependencies": {
+    "@types/jest": "22.2.3",
+	"ts-jest": "22.4.5",
+	"identity-obj-proxy": "3.0.0",
+	"react-test-renderer": "15.6.2",
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
@@ -99,7 +104,42 @@
     ]
   },
   "jest": {
-    "testRegex": "(/test/.*\\.spec\\.js)$"
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+	"transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+	"testMatch": [
+      "**/src/**/*.test.+(ts|tsx|js)"
+    ],
+	"reporters": [
+    "default",
+    "jest-junit"
+    ],
+	"collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "coverageDirectory": "<rootDir>/jest",
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "testResultsProcessor": "jest-junit",
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }  
+    "testRegex": "(/test/.*\\.spec\\.js)$",
   },
   "sideEffects": false
+}
 }
