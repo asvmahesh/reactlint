@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git(url: 'https://github.com/asvmahesh/reactlint.git', branch: 'master', changelog: true, credentialsId: '	b459e8c2-3e4c-4d79-b4de-5add9a9febcd', poll: true)
+        git(url: 'https://github.com/asvmahesh/reactlint.git', branch: 'master', changelog: true, credentialsId: 'b459e8c2-3e4c-4d79-b4de-5add9a9febcd', poll: true)
       }
     }
     stage('build') {
