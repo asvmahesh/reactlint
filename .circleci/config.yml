@@ -8,4 +8,6 @@
        - run: echo "Welcome to FFW"
        - run:
            name: Print date
-           command: date 
+           command:  |
+             date
+             npm -v
