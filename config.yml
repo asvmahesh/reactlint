@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.10
+
+    working_directory: ~/aw-bot
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: aw-bot-{{ checksum "yarn.lock" }}
+          name: Restore yarn cache
+
+      - run: yarn install
+
+      - type: cache-save
+        name: Store/update yarn cache
+        key: aw-bot-{{ checksum "yarn.lock" }}
+        paths:
+          - node_modules
+
+      - run:
+          name: Run javascript tests
+          command: |
+            mkdir -p test-results
+
+            yarn jest --ci --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: "test-results/jest.xml"
+
+          name: Run javascript linter
+          command: eslint ./src/ --format junit --output-file ./test-results/eslint.xml
+
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
