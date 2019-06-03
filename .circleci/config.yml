@@ -3,11 +3,12 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10
+    working_directory: ~/fww-web
     steps:
       - checkout
       - run: echo "Welcome to FFW"
       - run:
           name: Print date
           command:  |
-            date
+            pwd
             npm -v
