@@ -49,8 +49,6 @@ jobs:
       - image: circleci/node:8-jessie-browsers-legacy
     working_directory: ~/fww-web
     steps:
-      #build reactjs code 
-      -run: npm run build
       - run: 
           command: |
             aws --version
