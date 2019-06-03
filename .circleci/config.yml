@@ -22,7 +22,7 @@ jobs:
   
       - type: cache-save
         name: Store/update package cache
-        key: fww-web-dependencies-{{ checksum "package.lock" }}
+        key: fww-web-dependencies-{{ checksum "package.json" }}
         paths:
           - node_modules
 
