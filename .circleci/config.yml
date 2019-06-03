@@ -27,16 +27,16 @@ jobs:
           - node_modules
         
       - run:
-          name: Run jest tests
+          name: Run javascript tests
           command: |
+            mkdir -p output
+
             npm run test
-          
           environment:
             JEST_JUNIT_OUTPUT: "output/coverage/junit/junit.xml"
 
           name: Run javascript linter
-          command: |
-            npm run lint --format junit --output-file ./output/coverage/junit/eslint.xml && echo "Linting Completed"            
-            npm run format
-            ls
-            ls ~/fww-web/output/coverage/junit/
+          command: npm run lint --format junit --output-file ./output/coverage/junit/eslint.xml
+
+      - store_test_results:
+          path: output
