@@ -36,12 +36,12 @@
   ],
   "scripts": {
     "format": "prettier --write \"{src,test}/**/*.{js,ts}\" index.d.ts \"**/*.md\"",
-    "lint": "eslint src test --output-file ./output/coverage/junit/eslint.xml",
+    "lint": "eslint src test --output-file ./test-results/junit/eslint.xml",
     "pretest": "npm run build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:cov": "npm test -- --coverage",
-	  "test:covout": "jest --coverage --coverageDirectory=output/coverage/jest",
+	  "test:covout": "jest --coverage --coverageDirectory=test-results/coverage/jest",
     "build": "rollup -c",
     "examples:lint": "eslint examples",
     "examples:test": "cross-env CI=true babel-node examples/testAll.js"
@@ -102,7 +102,7 @@
     ]
   },
   "jest-junit": {
-    "output": "output/coverage/junit/junit.xml",
+    "output": "test-results/junit/junit.xml",
     "usePathForSuiteName": "true"
   },
   "jest": {
@@ -118,7 +118,7 @@
       "html",
       "cobertura"
     ],
-    "coverageDirectory": "<rootDir>/jest",
+    "coverageDirectory": "<rootDir>/test-results/jest",
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
