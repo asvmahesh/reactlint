@@ -2,25 +2,26 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8-jessie-browsers-legacy
+      - image: circleci/node:8.10
+      
     working_directory: ~/fww-web
     steps:
       - checkout
-      - run: echo "Welcome to FFW"
+      - run: echo "Welcome to FFW web deploy"
       - run:
-          name: Print date
+          name: Print npm version
           command:  |
-            ls ~/fww-web
+            pwd
             npm -v
-      - restore_cache:
-          keys: fww-web-dependencies-{{ checksum "package.json" }}
-          name: Restore packege cache
+                     
+     # - restore_cache:
+     #     keys: fww-web-dependencies-{{ checksum "package.json" }}
+     #     name: Restore packege cache
           
       - run: npm install
-      
+  
       - type: cache-save
         name: Store/update package cache
         key: fww-web-dependencies-{{ checksum "package.lock" }}
         paths:
           - node_modules
-      
