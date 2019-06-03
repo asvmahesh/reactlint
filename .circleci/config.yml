@@ -34,4 +34,7 @@ jobs:
           command: |
             npm run lint && echo "Linting Completed"            
             npm run format
-            ls ./test-results
+            echo "jest+++++"
+            ls ./test-results/jest/
+            echo "junit+++"
+            ls ./test-results/junit/
