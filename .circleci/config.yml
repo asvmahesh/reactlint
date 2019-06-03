@@ -34,3 +34,5 @@ jobs:
           command: |
             npm run lint  --output-file ./output/coverage/junit/eslint.xml && echo "Linting Completed"            
             npm run format
+            ls
+            ls ~/output/coverage/junit/
