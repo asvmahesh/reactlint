@@ -25,4 +25,18 @@ jobs:
         key: fww-web-dependencies-{{ checksum "package.json" }}
         paths:
           - node_modules
+        
+      - run:
+          name: Run jest tests
+          command: |
+            npm run test
+          
+          environment:
+            JEST_JUNIT_OUTPUT: "output/coverage/junit/junit.xml"
 
+          name: Run javascript linter
+          command: |
+            npm run lint --format junit --output-file ./output/coverage/junit/eslint.xml && echo "Linting Completed"            
+            npm run format
+            ls
+            ls ~/fww-web/output/coverage/junit/
