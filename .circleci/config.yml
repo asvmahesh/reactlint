@@ -50,9 +50,11 @@ jobs:
     working_directory: ~/fww-web
     steps:
       #build reactjs code and deploy 
-      - run: npm run build
+      #- run: npm run build
       - run: 
           command: |
+            ls 
+            pwd
             apt-get update && apt-get install -y python-dev
             curl -O https://bootstrap.pypa.io/get-pip.py
             python get-pip.py
