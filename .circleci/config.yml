@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Run javascript linter
           command: |
-            npm run lint  --output-file ./output/coverage/junit/eslint.xml && echo "Linting Completed"            
+            npm run lint && echo "Linting Completed"            
             npm run format
             ls
             ls ~/output/coverage/junit/
