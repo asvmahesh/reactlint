@@ -18,8 +18,9 @@ jobs:
           
       - run: npm install
       
-      - save_cache:
-          paths:
-            - node_modules
-          key: fww-web-dependencies-{{ checksum "package.json" }}
-      - run: ls
+      - type: cache-save
+        name: Store/update package cache
+        key: fww-web-dependencies-{{ checksum "package.lock" }}
+        paths:
+          - node_modules
+      
