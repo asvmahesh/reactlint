@@ -43,3 +43,9 @@ jobs:
 
       - store_artifacts:
           path: test-results
+  deploy_dev: 
+    steps:
+      - run: 
+          command: |
+            pwd
+            ls
