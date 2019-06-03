@@ -34,5 +34,4 @@ jobs:
           command: |
             npm run lint && echo "Linting Completed"            
             npm run format
-            ls ./jest
-            ls ./output/coverage/
+            ls ./test-results
