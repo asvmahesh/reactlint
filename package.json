@@ -36,7 +36,7 @@
   ],
   "scripts": {
     "format": "prettier --write \"{src,test}/**/*.{js,ts}\" index.d.ts \"**/*.md\"",
-    "lint": "eslint src test --output-file ./output/coverage/junit/eslint.xml"
+    "lint": "eslint src test --output-file ./output/coverage/junit/eslint.xml",
     "pretest": "npm run build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
