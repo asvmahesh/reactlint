@@ -12,3 +12,14 @@ jobs:
           command:  |
             ls ~/fww-web
             npm -v
+      - restore_cache:
+          keys: fww-web-dependencies-{{ checksum "package.json" }}
+          name: Restore packege cache
+          
+      - run: npm install
+      
+      - save_cache:
+          paths:
+            - node_modules
+          key: fww-web-dependencies-{{ checksum "package.json" }}
+      - run: ls
