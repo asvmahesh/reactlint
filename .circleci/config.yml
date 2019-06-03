@@ -43,7 +43,10 @@ jobs:
 
       - store_artifacts:
           path: test-results
-  deploy_dev: 
+  deploy_dev:
+    docker:
+      - image: circleci/node:8-jessie-browsers-legacy
+    working_directory: ~/fww-web
     steps:
       - run: 
           command: |
