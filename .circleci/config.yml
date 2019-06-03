@@ -28,13 +28,18 @@ jobs:
           
       - run: # run tests
           name: Run jest tests
-          command: npm run test
+          command: |
+            mkdir -p test-results
+            
+            npm run test
       - run:
           name: Run javascript linter
           command: |
-            npm run lint && echo "Linting Completed"            
+            npm run lint && echo "++Linting Completed++"            
             npm run format
-            echo "jest+++++"
-            ls ./test-results/jest/
-            echo "junit+++"
-            ls ./test-results/junit/
+        
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
