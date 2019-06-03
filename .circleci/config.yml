@@ -1,13 +1,18 @@
- version: 2
- jobs:
-   build:
-     docker:
-       - image: circleci/node:8.10
-     steps:
-       - checkout
-       - run: echo "Welcome to FFW"
-       - run:
-           name: Print date
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.10
+    
+    working_directory: ~/fww-web
+    
+    steps:
+      - checkout
+      - run: echo "A first hello"
+      - run:
+          name: Print npm version
            command:  |
-             date
-             npm -v
+              date
+              npm -v
+              ls 
+              pwd
