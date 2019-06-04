@@ -14,35 +14,35 @@ jobs:
             pwd
             npm -v
                      
-      #- restore_cache:
-      #    keys: fww-web-dependencies-{{ checksum "package.json" }}
-      #    name: Restore packege cache
-      #    
-      #- run: npm install
-  #
-      #- type: cache-save
-      #  name: Store/update package cache
-      #  key: fww-web-dependencies-{{ checksum "package.json" }}
-      #  paths:
-      #    - node_modules
-      #    
-      #- run: # run tests
-      #    name: Run jest tests
-      #    command: |
-      #      mkdir -p test-results
-      #      
-      #      npm run test
-      #- run:
-      #    name: Run javascript linter
-      #    command: |
-      #      npm run lint && echo "++Linting Completed++"            
-      #      npm run format
-      #  
-      #- store_test_results:
-      #    path: test-results
-#
-      #- store_artifacts:
-      #    path: test-results
+      - restore_cache:
+          keys: fww-web-dependencies-{{ checksum "package.json" }}
+          name: Restore packege cache
+          
+      - run: npm install
+  
+      - type: cache-save
+        name: Store/update package cache
+        key: fww-web-dependencies-{{ checksum "package.json" }}
+        paths:
+          - node_modules
+          
+      - run: # run tests
+          name: Run jest tests
+          command: |
+            mkdir -p test-results
+            
+            npm run test
+      - run:
+          name: Run javascript linter
+          command: |
+            npm run lint && echo "++Linting Completed++"            
+            npm run format
+        
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
 
   deploy_dev: 
     docker:
@@ -52,7 +52,7 @@ jobs:
     environment:
       aws_access_key_id: $AccessKey
       aws_secret_access_key: $SecretKey
-      test: "mahesh"
+      
     steps:
       #build reactjs code and deploy 
       #- run: npm run build
@@ -61,7 +61,7 @@ jobs:
           command: |
             whoami
             ls
-            echo "${test}"
+            echo "${aws_access_key_id}"
             
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
@@ -70,7 +70,7 @@ jobs:
       - run: aws --version
       - run: 
           name: S3 web deploy
-          command: aws s3 sync build/ s3://k8sasv --delete          
+          command: AWS_ACCESS_KEY_ID="${aws_access_key_id}" AWS_SECRET_ACCESS_KEY="${aws_secret_access_key}" aws s3 sync build/ s3://k8sasv --delete          
             
 workflows:
   version: 2
