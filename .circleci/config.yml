@@ -61,7 +61,7 @@ jobs:
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
       - run: sudo python get-pip.py
       - run: sudo pip install awscli --upgrade  
-      - run: aws --version && python -v  
+      - run: aws --version
             
 workflows:
   version: 2
