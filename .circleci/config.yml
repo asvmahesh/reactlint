@@ -71,7 +71,6 @@ workflows:
     jobs:
       - build
       - deploy_dev:
-          type: approval
           filters:
             branches:
               only: master
