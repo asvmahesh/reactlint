@@ -14,35 +14,35 @@ jobs:
             pwd
             npm -v
                      
-      - restore_cache:
-          keys: fww-web-dependencies-{{ checksum "package.json" }}
-          name: Restore packege cache
-          
-      - run: npm install
-  
-      - type: cache-save
-        name: Store/update package cache
-        key: fww-web-dependencies-{{ checksum "package.json" }}
-        paths:
-          - node_modules
-          
-      - run: # run tests
-          name: Run jest tests
-          command: |
-            mkdir -p test-results
-            
-            npm run test
-      - run:
-          name: Run javascript linter
-          command: |
-            npm run lint && echo "++Linting Completed++"            
-            npm run format
-        
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
+    #  - restore_cache:
+    #      keys: fww-web-dependencies-{{ checksum "package.json" }}
+    #      name: Restore packege cache
+    #      
+    #  - run: npm install
+    #
+    #  - type: cache-save
+    #    name: Store/update package cache
+    #    key: fww-web-dependencies-{{ checksum "package.json" }}
+    #    paths:
+    #      - node_modules
+    #      
+    #  - run: # run tests
+    #      name: Run jest tests
+    #      command: |
+    #        mkdir -p test-results
+    #        
+    #        npm run test
+    #  - run:
+    #      name: Run javascript linter
+    #      command: |
+    #        npm run lint && echo "++Linting Completed++"            
+    #        npm run format
+    #    
+    #  - store_test_results:
+    #      path: test-results
+    #
+    #  - store_artifacts:
+    #      path: test-results
 
   deploy_dev: 
     docker:
@@ -50,8 +50,8 @@ jobs:
     working_directory: ~/fww-web
     
     environment:
-      aws_access_key_id: $AccessKey
-      aws_secret_access_key: $SecretKey
+      aws_access_key_id: ${AccessKey}
+      aws_secret_access_key: ${SecretKey}
       
     steps:
       #build reactjs code and deploy 
