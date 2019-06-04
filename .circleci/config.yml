@@ -54,6 +54,8 @@ jobs:
       - run: 
           command: |
             whoami 
+            pwd
+            ls
             
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
