@@ -50,8 +50,8 @@ jobs:
     working_directory: ~/fww-web
     
     environment:
-      aws_access_key_id: ${AccessKey}
-      aws_secret_access_key: ${SecretKey}
+      aws_access_key_id: AccessKey
+      aws_secret_access_key: SecretKey
       
     steps:
       #build reactjs code and deploy 
