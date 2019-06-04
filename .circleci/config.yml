@@ -54,7 +54,7 @@ jobs:
       - run: 
           command: |
             whoami 
-            echo "++python version++"
+            echo "+++python version+++"
             python -v
             pwd
             sudo apt-get update && sudo apt-get install -y python-dev
