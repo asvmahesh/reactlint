@@ -55,6 +55,7 @@ jobs:
     steps:
       #build reactjs code and deploy 
       #- run: npm run build
+      - checkout
       - run: 
           command: |
             whoami
