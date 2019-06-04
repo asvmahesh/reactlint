@@ -62,8 +62,6 @@ jobs:
             whoami
             ls
             echo "${AWS_ACCESS_KEY_ID}"
-            echo "$AWS_ACCESS_KEY_ID"
-            echo $AWS_ACCESS_KEY_ID
             
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
@@ -72,7 +70,7 @@ jobs:
       - run: aws --version
       - run: 
           name: S3 web deploy
-          command: AWS_ACCESS_KEY_ID="${aws_access_key_id}" AWS_SECRET_ACCESS_KEY="${aws_secret_access_key}" aws s3 sync build/ s3://k8sasv --delete          
+          command: AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" aws s3 sync build/ s3://k8sasv --delete          
             
 workflows:
   version: 2
