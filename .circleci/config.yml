@@ -46,7 +46,7 @@ jobs:
 
   deploy_dev: 
     docker:
-      - image: circleci/node:8-jessie-browsers-legacy
+      - image: cibuilds/aws:1.15.73
     working_directory: ~/fww-web
     
     environment:
