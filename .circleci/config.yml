@@ -46,13 +46,13 @@ jobs:
 
   deploy_dev: 
     docker:
-      - image: cibuilds/aws:1.15.73
-      #circleci/node:8-jessie-browsers-legacy
+      - image: circleci/node:8-jessie-browsers-legacy
     working_directory: ~/fww-web
     
     environment:
       aws_access_key_id: $AccessKey
       aws_secret_access_key: $SecretKey
+      test: "mahesh"
     steps:
       #build reactjs code and deploy 
       #- run: npm run build
@@ -61,11 +61,12 @@ jobs:
           command: |
             whoami
             ls
+            echo "${test}"
             
-      #- run: sudo apt-get update && sudo apt-get install -y python-dev
-      #- run: curl -O https://bootstrap.pypa.io/get-pip.py
-      #- run: sudo python get-pip.py
-      #- run: sudo pip install awscli --upgrade  
+      - run: sudo apt-get update && sudo apt-get install -y python-dev
+      - run: curl -O https://bootstrap.pypa.io/get-pip.py
+      - run: sudo python get-pip.py
+      - run: sudo pip install awscli --upgrade  
       - run: aws --version
       - run: 
           name: S3 web deploy
