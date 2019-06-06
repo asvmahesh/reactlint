@@ -60,7 +60,7 @@ jobs:
       - run: 
           command: |
             whoami
-          #  ls
+            ls
             echo "${aws_access_key_id}"
             
       - run: sudo apt-get update && sudo apt-get install -y python-dev
