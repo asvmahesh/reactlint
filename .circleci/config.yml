@@ -77,10 +77,10 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-      - hold:
-          type: approval
-          requires:
-            - build
       - deploy_dev:
           requires:
-            -build
+            - build
+          type: approval
+          filters:
+            branches:
+              only: master  
