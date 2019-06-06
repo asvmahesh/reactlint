@@ -77,7 +77,10 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-      - deploy_dev:
+      - deploy_devhold:
           type: approval
           requires:
             - build
+      - deploy_dev:
+          requires:
+            -build
