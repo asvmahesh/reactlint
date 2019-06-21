@@ -68,9 +68,9 @@ jobs:
       - run: sudo python get-pip.py
       - run: sudo pip install awscli --upgrade  
       - run: aws --version
-      - run: 
-          name: S3 web deploy
-          command: AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" aws s3 sync build/ s3://k8sasv --delete          
+      #- run: 
+      #    name: S3 web deploy
+      #    command: AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" aws s3 sync build/ s3://k8sasv --delete          
             
 workflows:
   version: 2
