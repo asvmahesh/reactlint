@@ -1,5 +1,16 @@
 version: 2.1
 
+
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: echo << parameters.to >> 
+      
 jobs: # conditional steps may also be defined in `commands:`
   job_with_optional_custom_checkout:
     parameters:
@@ -9,6 +20,8 @@ jobs: # conditional steps may also be defined in `commands:`
     machine: true
     steps:
       - run: echo <<parameters.custom_checkout>>
+      - sayhello
+ 
 
 workflows:
   build-test-deploy:
