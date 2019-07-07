@@ -82,7 +82,7 @@ workflows:
       - deploy_dev:
           requires:
             - build
-          should_build: "CIRCLE_PULL_REQUEST"
+                should_build: "CIRCLE_PULL_REQUEST"
           filters:
             branches:
               only: development  
