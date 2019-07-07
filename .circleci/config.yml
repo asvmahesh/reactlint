@@ -1,18 +1,30 @@
 version: 2.1
+
+  commands:
+    echo:
+      description: "test echo parameter"
+      parameters:
+        custom:
+          type: string
+          default: ""
+    machine: true
+    steps:
+      - run: echo "<< parameters.custom >>"
+      - run: echo << parameters.custom >>
+
 jobs:
   build:
     docker:
       - image: circleci/node:8-jessie-browsers-legacy
       
     working_directory: ~/fww-web
-    parameters:
-      should_build:
-         type: string
-         default: "succes"
+    
  
     steps:
       - checkout
       - run: echo "Welcome to FFW web deploy"
+      - echo:
+          custom: success
       - run:
           name: Print npm version
           command:  |
@@ -80,7 +92,6 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-   #       should_build: "test"
       - deploy_dev:
           requires:
             - build
