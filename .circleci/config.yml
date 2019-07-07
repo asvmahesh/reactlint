@@ -14,10 +14,7 @@ jobs:
             pwd
             npm -v
                      
-    #  - restore_cache:
-    #      keys: fww-web-dependencies-{{ checksum "package.json" }}
-    #      name: Restore packege cache
-    #      
+
       - run: npm install
     
       - type: cache-save
@@ -35,7 +32,7 @@ jobs:
       - run:
           name: Run javascript linter
           command: |
-            npm run lint && echo "++Linting Completed++"            
+            npm run lint && echo "++Linting Completed ${result}++"            
             npm run format
         
       - store_test_results:
@@ -77,11 +74,11 @@ workflows:
   version: 2
   build_accept_deploy:
     jobs:
-      - build
       - deploy_dev:
           requires:
             - build
-          type: approval
+          environment:
+            result : test
           filters:
             branches:
-              only: master  
+              only: development  
