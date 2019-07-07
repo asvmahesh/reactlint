@@ -18,7 +18,7 @@ jobs:
           command:  |
             pwd
             npm -v
-            echo "test <<parameters.should_build>>"        
+            echo "test "<< parameters.should_build >>""        
 
       - run: npm install
     
