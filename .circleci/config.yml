@@ -80,9 +80,10 @@ workflows:
   build_accept_deploy:
     jobs:
       - deploy_dev:
+          should_build: "CIRCLE_PULL_REQUEST"
           requires:
             - build
-                should_build: "CIRCLE_PULL_REQUEST"
+       #    should_build: "CIRCLE_PULL_REQUEST"
           filters:
             branches:
               only: development  
