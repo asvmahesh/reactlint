@@ -5,6 +5,11 @@ jobs:
       - image: circleci/node:8-jessie-browsers-legacy
       
     working_directory: ~/fww-web
+    parameters:
+      should_build:
+         type: string
+         default: ""
+ 
     steps:
       - checkout
       - run: echo "Welcome to FFW web deploy"
@@ -13,7 +18,7 @@ jobs:
           command:  |
             pwd
             npm -v
-                     
+            echo "test << parameters.should_build >>"        
 
       - run: npm install
     
@@ -77,8 +82,7 @@ workflows:
       - deploy_dev:
           requires:
             - build
-          environment:
-            result : test
+          should_build: "CIRCLE_PULL_REQUEST"
           filters:
             branches:
               only: development  
