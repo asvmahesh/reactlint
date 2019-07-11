@@ -24,7 +24,6 @@ jobs: # conditional steps may also be defined in `commands:`
  
 
 workflows:
-  version: 2
   build-test-deploy:
     jobs:
       - job_with_optional_custom_checkout:
