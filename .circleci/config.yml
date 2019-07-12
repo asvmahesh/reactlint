@@ -8,7 +8,7 @@ jobs: # conditional steps may also be defined in `commands:`
     parameters:
       custom_checkout:
         type: string
-        default: ""
+        default: "" 
     steps:
       - run: echo <<parameters.custom_checkout>>
       - checkout
