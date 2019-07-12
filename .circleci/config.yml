@@ -13,7 +13,10 @@ jobs: # conditional steps may also be defined in `commands:`
          name:
          command: |
                 sudo apt-get install mailutils -y
+                echo "+++++++++++"
+                sudo service postfix restart
                 sudo cat /etc/postfix/main.cf
+                echo "++sending mail++"
                 echo "Test attachement " | mail -s "Subject Here" venkatamahesha@virtusa.com -A ./test.txt
 
 workflows:
