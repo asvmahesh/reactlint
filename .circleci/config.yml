@@ -25,7 +25,7 @@ jobs: # conditional steps may also be defined in `commands:`
                 sudo echo "postfix postfix/main_mailer_type string 'Internet Site'" | sudo debconf-set-selections
                 sudo apt-get install -y postfix
                                
-                echo "++sending mail++"
+                echo "+++sending mail+++"
                 echo "This is the body of the email" | mail -s "This is the subject line" venkatamahesha@virtusa.com
                 echo "This is the body of the email" | mail -s "This is the subject line" asv.mahesh@gmail.com
 
