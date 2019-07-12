@@ -12,8 +12,8 @@ jobs: # conditional steps may also be defined in `commands:`
       - run: 
          name:
          command: |
-                uname -r && uname -a
-                sudo apt-get install mailutils
+                sudo apt-get install mailutils -y
+                sudo cat /etc/postfix/main.cf
                 echo "Test attachement " | mail -s "Subject Here" venkatamahesha@virtusa.com -A ./test.txt
 
 workflows:
