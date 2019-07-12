@@ -12,8 +12,8 @@ commands:
       - run: echo << parameters.to >> 
       
 jobs: # conditional steps may also be defined in `commands:`
-  job_with_optional_custom_checkout:
-        docker:
+  build:
+    docker:
       - image: circleci/node:8.10 # ...with this image as the primary container; this is where all `steps` will run
 
     working_directory: ~/fww-services
