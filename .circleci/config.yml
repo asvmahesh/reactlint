@@ -15,6 +15,7 @@ jobs: # conditional steps may also be defined in `commands:`
       - run: 
          name:
          command: |
+                uname -a & uname -r
                 sudo apt-get install mailutils -y
                 echo "+++++++++++"
                 sudo sleep 10
