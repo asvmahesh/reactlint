@@ -13,6 +13,10 @@ commands:
       
 jobs: # conditional steps may also be defined in `commands:`
   job_with_optional_custom_checkout:
+        docker:
+      - image: circleci/node:8.10 # ...with this image as the primary container; this is where all `steps` will run
+
+    working_directory: ~/fww-services
     parameters:
       custom_checkout:
         type: string
@@ -21,6 +25,10 @@ jobs: # conditional steps may also be defined in `commands:`
     steps:
       - run: echo <<parameters.custom_checkout>>
       - sayhello
+	  - run:
+	      command: | 
+		     sudo apt-get install mutt
+			  mutt -s "Test mail" -a ./test.txt venkatamahesha@virtusa.com < echo "Test"
  
 
 workflows:
