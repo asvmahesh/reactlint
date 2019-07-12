@@ -16,11 +16,15 @@ jobs: # conditional steps may also be defined in `commands:`
          name:
          command: |
                 uname -a & uname -r
-                sudo apt-get install mailutils -y
+                sudo apt-get install -y mailutils
                 echo "+++++++++++"
                 sudo sleep 10
                 pwd
                 ls -la
+                echo "postfix postfix/mailname string gmail.com" | debconf-set-selections
+                echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
+                sudo apt-get install -y postfix
+
                 echo "++sending mail++"
                 echo "Test attachement " | mail -s "Subject Here" venkatamahesha@virtusa.com -A ./test.txt
 
