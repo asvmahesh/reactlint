@@ -2,6 +2,9 @@ version: 2.1
 
 jobs: # conditional steps may also be defined in `commands:`
   job_with_optional_custom_checkout:
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/fww-services
     parameters:
       custom_checkout:
         type: string
@@ -9,6 +12,7 @@ jobs: # conditional steps may also be defined in `commands:`
     machine: true
     steps:
       - run: echo <<parameters.custom_checkout>>
+      - checkout
       - run: 
          name:
          command: |
