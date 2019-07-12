@@ -19,7 +19,6 @@ jobs: # conditional steps may also be defined in `commands:`
                 sudo apt-get install mailutils -y
                 echo "+++++++++++"
                 sudo sleep 10
-                sudo cat /etc/postfix/main.cf
                 pwd
                 ls -la
                 echo "++sending mail++"
