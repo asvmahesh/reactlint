@@ -11,7 +11,7 @@ commands:
     steps:
       - run: echo << parameters.to >> 
       
-jobs: # conditional steps may also be defined in `commands:`
+jobs: # conditional steps may also be defined in `commands:` 
   build:
     docker:
       - image: circleci/node:8.10 # ...with this image as the primary container; this is where all `steps` will run
