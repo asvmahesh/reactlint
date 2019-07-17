@@ -18,7 +18,7 @@ jobs:
           name: Run jest tests
           command: |
             mkdir -p test-results
-            npm run test
+            
       - run:
           name: Setup Code Climate test-reporter
           command: |
@@ -28,15 +28,11 @@ jobs:
       - run:
           name: Code Coverage
           command: |
-            ./cc-test-reporter before-build
-            for f in test-results/jest/; do
-              if [ -d "$f" ]; then
-                 echo $f
-                ./cc-test-reporter format-coverage -t lcov -o ./coverage.total.json $f/lcov.info
-              fi
-            done;
-            ./cc-test-reporter upload-coverage -i ./coverage.total.json
-            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+                  ./cc-test-reporter before-build
+                   npm run test:covout
+                   
+                  ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
+             
             
 workflows:
   version: 2
