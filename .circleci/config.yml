@@ -17,11 +17,6 @@ jobs:
       - run: echo "Welcome to FFW web deploy"     
 
       - run: npm install
-      - type: cache-save
-        name: Store/update package cache
-        key: fww-web-dependencies-{{ checksum "package.json" }}
-        paths:
-          - node_modules     
 
       - run: # run tests
           name: Run jest tests
