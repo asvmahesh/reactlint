@@ -43,47 +43,6 @@ workflows:
 
 
 #version: 2.1
-#
-#jobs: # conditional steps may also be defined in `commands:`
-#  job_with_optional_custom_checkout:
-#    docker:
-#      - image: circleci/node:8.10
-#    working_directory: ~/fww-services
-#    parameters:
-#      custom_checkout:
-#        type: string
-#        default: "" 
-#    steps:
-#      - run: echo <<parameters.custom_checkout>>
-#      - checkout
-#      - run: 
-#         name:
-#         command: |
-#                uname -a & uname -r
-#                sudo apt-get install -y mailutils
-#                echo "+++++++++++"
-#                sudo sleep 10
-#                pwd
-#                ls -la
-#                sudo echo "postfix postfix/mailname string gmail.com" | sudo debconf-set-selections
-#                sudo echo "postfix postfix/main_mailer_type string 'Internet Site'" | sudo debconf-set-selections
-#                sudo apt-get install -y postfix
-#                               
-#                echo "+++sending mail+++"
-#                echo "This is the body of the email" | mail -s "This is the subject line" venkatamahesha@virtusa.com
-#                echo "This is the body of the email" | mail -s "This is the subject line" asv.mahesh@gmail.com
-#
-#workflows:
-#  build-test-deploy:
-#    jobs:
-#      - job_with_optional_custom_checkout:
-#          custom_checkout: "any non-empty string is truthy"
-#
-#
-#
-
-
-#version: 2.1
 #commands:
 #  deploy_steps:
 #    parameters:
