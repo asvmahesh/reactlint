@@ -35,7 +35,6 @@ jobs:
                 ./cc-test-reporter format-coverage -t lcov -o tmp/coverage.${f//\//-}.json $f/coverage/lcov.info
               fi
             done;
-            ./cc-test-reporter sum-coverage -o ./coverage.total.json ./coverage.*.json
             ./cc-test-reporter upload-coverage -i ./coverage.total.json
             ./tmp/cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
             
