@@ -14,7 +14,7 @@ jobs:
 
       - run: npm install
 
-      - run: # run tests
+      - run: # run tests test-results/coverage/jest
           name: Run jest tests
           command: |
             mkdir -p test-results
@@ -26,11 +26,19 @@ jobs:
                   chmod +x ./cc-test-reporter
 
       - run:
-          name: Run tests # ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+          name: Code Coverage
           command: |
-                   ./cc-test-reporter before-build
-                   ./cc-test-reporter after-build -d -t lcov --exit-code $?
-                   ./cc-test-reporter upload-coverage
+            ./cc-test-reporter before-build
+            for f in packages/*; do
+              if [ -d "$f" ]; then
+                 echo $f
+                ./cc-test-reporter format-coverage -t lcov -o tmp/coverage.${f//\//-}.json $f/coverage/lcov.info
+              fi
+            done;
+            ./cc-test-reporter sum-coverage -o ./coverage.total.json ./coverage.*.json
+            ./cc-test-reporter upload-coverage -i ./coverage.total.json
+            ./tmp/cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+			
                    
 workflows:
   version: 2
