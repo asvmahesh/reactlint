@@ -32,7 +32,7 @@ jobs:
             for f in test-results/jest/; do
               if [ -d "$f" ]; then
                  echo $f
-                ./cc-test-reporter format-coverage -t lcov -o ./coverage.${f//\//-}.json $f/lcov.info
+                ./cc-test-reporter format-coverage -t lcov -o ./coverage.total.json $f/lcov.info
               fi
             done;
             ./cc-test-reporter upload-coverage -i ./coverage.total.json
