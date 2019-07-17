@@ -63,8 +63,8 @@ jobs:
             
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
-      - run: sudo python get-pip.py
-      - run: sudo pip install awscli --upgrade  
+     # - run: sudo python get-pip.py
+     # - run: sudo pip install awscli --upgrade  
       - run: aws --version
       #- run: 
       #    name: S3 web deploy
@@ -81,7 +81,9 @@ workflows:
             - build
           filters:
             branches:
-              only: development  
+              only: 
+                - development  
+                - master
 #version: 2.1
 #
 #jobs: # conditional steps may also be defined in `commands:`
@@ -215,3 +217,4 @@ workflows:
 ##            branches:
 ##              only: development  
 #
+
