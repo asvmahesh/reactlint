@@ -29,8 +29,10 @@ jobs:
           name: Code Coverage
           command: |
                   ./cc-test-reporter before-build
-                   npm run test:cov
-                   ./cc-test-reporter after-build --exit-code $?
+                   npm run test:covout
+                   
+                  ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
+             
             
 workflows:
   version: 2
