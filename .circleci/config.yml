@@ -48,14 +48,13 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-      - request-testing:
+      - hold-for-approval:
           type: approval
           requires:
             - build
       - test:
-        requires:
-          - request-testing
-          
+          requires:
+            - hold-for-approval
 
 #version: 2.1
 #commands:
