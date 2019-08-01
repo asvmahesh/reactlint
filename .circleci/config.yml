@@ -32,6 +32,15 @@ jobs:
                    npm run test:covout
                    
                   ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
+                  
+  test_hold:
+    docker:
+      - image: circleci/node:8-jessie-browsers-legacy
+    working_directory: ~/fww-web
+    steps:
+      - checkout
+      - run: echo "Hold run successfully"     
+  
              
             
 workflows:
@@ -39,7 +48,14 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-
+      - request-testing:
+          type: approval
+          requires:
+            - build
+      - test:
+        requires:
+          - request-testing
+          
 
 #version: 2.1
 #commands:

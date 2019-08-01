@@ -107,16 +107,13 @@
     },
     "jest": {
         "reporters": [
-            "default",
-            "jest-junit"
+            "default"
         ],
         "collectCoverage": true,
         "coverageReporters": [
             "json",
             "lcov",
-            "text",
-            "html",
-            "cobertura"
+            "html"
         ],
         "coverageDirectory": "<rootDir>/test-results/jest",
         "moduleNameMapper": {

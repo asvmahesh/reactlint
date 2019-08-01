@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="76" failures="0" time="42.316">
+  <testsuite name="test\applyMiddleware.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:00" time="4.007" tests="5">
+    <testcase classname="applyMiddleware warns when dispatching during middleware setup" name="applyMiddleware warns when dispatching during middleware setup" time="0.052">
+    </testcase>
+    <testcase classname="applyMiddleware wraps dispatch method with middleware once" name="applyMiddleware wraps dispatch method with middleware once" time="0.006">
+    </testcase>
+    <testcase classname="applyMiddleware passes recursive dispatches through the middleware chain" name="applyMiddleware passes recursive dispatches through the middleware chain" time="0.001">
+    </testcase>
+    <testcase classname="applyMiddleware works with thunk middleware" name="applyMiddleware works with thunk middleware" time="0.018">
+    </testcase>
+    <testcase classname="applyMiddleware passes through all arguments of dispatch calls from within middleware" name="applyMiddleware passes through all arguments of dispatch calls from within middleware" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\combineReducers.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:04" time="0.637" tests="13">
+    <testcase classname="Utils combineReducers returns a composite reducer that maps the state keys to given reducers" name="Utils combineReducers returns a composite reducer that maps the state keys to given reducers" time="0.008">
+    </testcase>
+    <testcase classname="Utils combineReducers ignores all props which are not a function" name="Utils combineReducers ignores all props which are not a function" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers warns if a reducer prop is undefined" name="Utils combineReducers warns if a reducer prop is undefined" time="0.002">
+    </testcase>
+    <testcase classname="Utils combineReducers throws an error if a reducer returns undefined handling an action" name="Utils combineReducers throws an error if a reducer returns undefined handling an action" time="0.054">
+    </testcase>
+    <testcase classname="Utils combineReducers throws an error on first call if a reducer returns undefined initializing" name="Utils combineReducers throws an error on first call if a reducer returns undefined initializing" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers catches error thrown in reducer when initializing and re-throw" name="Utils combineReducers catches error thrown in reducer when initializing and re-throw" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers allows a symbol to be used as an action type" name="Utils combineReducers allows a symbol to be used as an action type" time="0">
+    </testcase>
+    <testcase classname="Utils combineReducers maintains referential equality if the reducers it is combining do" name="Utils combineReducers maintains referential equality if the reducers it is combining do" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers does not have referential equality if one of the reducers changes something" name="Utils combineReducers does not have referential equality if one of the reducers changes something" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers throws an error on first call if a reducer attempts to handle a private action" name="Utils combineReducers throws an error on first call if a reducer attempts to handle a private action" time="0.002">
+    </testcase>
+    <testcase classname="Utils combineReducers warns if no reducers are passed to combineReducers" name="Utils combineReducers warns if no reducers are passed to combineReducers" time="0.001">
+    </testcase>
+    <testcase classname="Utils combineReducers warns if input state does not match reducer shape" name="Utils combineReducers warns if input state does not match reducer shape" time="0.004">
+    </testcase>
+    <testcase classname="Utils combineReducers only warns for unexpected keys once" name="Utils combineReducers only warns for unexpected keys once" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\createStore.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:00" time="5.332" tests="40">
+    <testcase classname="createStore exposes the public API" name="createStore exposes the public API" time="0.013">
+    </testcase>
+    <testcase classname="createStore throws if reducer is not a function" name="createStore throws if reducer is not a function" time="0.087">
+    </testcase>
+    <testcase classname="createStore passes the initial state" name="createStore passes the initial state" time="0.003">
+    </testcase>
+    <testcase classname="createStore applies the reducer to the previous state" name="createStore applies the reducer to the previous state" time="0.002">
+    </testcase>
+    <testcase classname="createStore applies the reducer to the initial state" name="createStore applies the reducer to the initial state" time="0.003">
+    </testcase>
+    <testcase classname="createStore preserves the state when replacing a reducer" name="createStore preserves the state when replacing a reducer" time="0.002">
+    </testcase>
+    <testcase classname="createStore supports multiple subscriptions" name="createStore supports multiple subscriptions" time="0.007">
+    </testcase>
+    <testcase classname="createStore only removes listener once when unsubscribe is called" name="createStore only removes listener once when unsubscribe is called" time="0.001">
+    </testcase>
+    <testcase classname="createStore only removes relevant listener when unsubscribe is called" name="createStore only removes relevant listener when unsubscribe is called" time="0">
+    </testcase>
+    <testcase classname="createStore supports removing a subscription within a subscription" name="createStore supports removing a subscription within a subscription" time="0.001">
+    </testcase>
+    <testcase classname="createStore notifies all subscribers about current dispatch regardless if any of them gets unsubscribed in the process" name="createStore notifies all subscribers about current dispatch regardless if any of them gets unsubscribed in the process" time="0.003">
+    </testcase>
+    <testcase classname="createStore notifies only subscribers active at the moment of current dispatch" name="createStore notifies only subscribers active at the moment of current dispatch" time="0.001">
+    </testcase>
+    <testcase classname="createStore uses the last snapshot of subscribers during nested dispatch" name="createStore uses the last snapshot of subscribers during nested dispatch" time="0.006">
+    </testcase>
+    <testcase classname="createStore provides an up-to-date state when a subscriber is notified" name="createStore provides an up-to-date state when a subscriber is notified" time="0.001">
+    </testcase>
+    <testcase classname="createStore does not leak private listeners array" name="createStore does not leak private listeners array" time="0">
+    </testcase>
+    <testcase classname="createStore only accepts plain object actions" name="createStore only accepts plain object actions" time="0.004">
+    </testcase>
+    <testcase classname="createStore handles nested dispatches gracefully" name="createStore handles nested dispatches gracefully" time="0.001">
+    </testcase>
+    <testcase classname="createStore does not allow dispatch() from within a reducer" name="createStore does not allow dispatch() from within a reducer" time="0.039">
+    </testcase>
+    <testcase classname="createStore does not allow getState() from within a reducer" name="createStore does not allow getState() from within a reducer" time="0.002">
+    </testcase>
+    <testcase classname="createStore does not allow subscribe() from within a reducer" name="createStore does not allow subscribe() from within a reducer" time="0.001">
+    </testcase>
+    <testcase classname="createStore does not allow unsubscribe from subscribe() from within a reducer" name="createStore does not allow unsubscribe from subscribe() from within a reducer" time="0.001">
+    </testcase>
+    <testcase classname="createStore recovers from an error within a reducer" name="createStore recovers from an error within a reducer" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if action type is missing" name="createStore throws if action type is missing" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if action type is undefined" name="createStore throws if action type is undefined" time="0.001">
+    </testcase>
+    <testcase classname="createStore does not throw if action type is falsy" name="createStore does not throw if action type is falsy" time="0">
+    </testcase>
+    <testcase classname="createStore accepts enhancer as the third argument" name="createStore accepts enhancer as the third argument" time="0.002">
+    </testcase>
+    <testcase classname="createStore accepts enhancer as the second argument if initial state is missing" name="createStore accepts enhancer as the second argument if initial state is missing" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if enhancer is neither undefined nor a function" name="createStore throws if enhancer is neither undefined nor a function" time="0.038">
+    </testcase>
+    <testcase classname="createStore throws if nextReducer is not a function" name="createStore throws if nextReducer is not a function" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if listener is not a function" name="createStore throws if listener is not a function" time="0.007">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point should exist" name="createStore Symbol.observable interop point should exist" time="0">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point returned value should be subscribable" name="createStore Symbol.observable interop point returned value should be subscribable" time="0">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point returned value should throw a TypeError if an observer object is not supplied to subscribe" name="createStore Symbol.observable interop point returned value should throw a TypeError if an observer object is not supplied to subscribe" time="0.005">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point returned value should return a subscription object when subscribed" name="createStore Symbol.observable interop point returned value should return a subscription object when subscribed" time="0">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point should pass an integration test with no unsubscribe" name="createStore Symbol.observable interop point should pass an integration test with no unsubscribe" time="0.001">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point should pass an integration test with an unsubscribe" name="createStore Symbol.observable interop point should pass an integration test with an unsubscribe" time="0">
+    </testcase>
+    <testcase classname="createStore Symbol.observable interop point should pass an integration test with a common library (RxJS)" name="createStore Symbol.observable interop point should pass an integration test with a common library (RxJS)" time="0.009">
+    </testcase>
+    <testcase classname="createStore does not log an error if parts of the current state will be ignored by a nextReducer using combineReducers" name="createStore does not log an error if parts of the current state will be ignored by a nextReducer using combineReducers" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if passing several enhancer functions without preloaded state" name="createStore throws if passing several enhancer functions without preloaded state" time="0.001">
+    </testcase>
+    <testcase classname="createStore throws if passing several enhancer functions with preloaded state" name="createStore throws if passing several enhancer functions with preloaded state" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\utils\warning.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:04" time="0.636" tests="3">
+    <testcase classname="Utils warning calls console.error when available" name="Utils warning calls console.error when available" time="0.002">
+    </testcase>
+    <testcase classname="Utils warning does not throw when console.error is not available" name="Utils warning does not throw when console.error is not available" time="0.003">
+    </testcase>
+    <testcase classname="Utils warning does not throw when console is not available" name="Utils warning does not throw when console is not available" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\utils\isPlainObject.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:05" time="0.63" tests="1">
+    <testcase classname="isPlainObject returns true only if plain object" name="isPlainObject returns true only if plain object" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\bindActionCreators.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:05" time="0.599" tests="7">
+    <testcase classname="bindActionCreators wraps the action creators with the dispatch function" name="bindActionCreators wraps the action creators with the dispatch function" time="0.014">
+    </testcase>
+    <testcase classname="bindActionCreators wraps action creators transparently" name="bindActionCreators wraps action creators transparently" time="0.002">
+    </testcase>
+    <testcase classname="bindActionCreators skips non-function values in the passed object" name="bindActionCreators skips non-function values in the passed object" time="0.001">
+    </testcase>
+    <testcase classname="bindActionCreators supports wrapping a single function only" name="bindActionCreators supports wrapping a single function only" time="0.001">
+    </testcase>
+    <testcase classname="bindActionCreators throws for an undefined actionCreator" name="bindActionCreators throws for an undefined actionCreator" time="0.063">
+    </testcase>
+    <testcase classname="bindActionCreators throws for a null actionCreator" name="bindActionCreators throws for a null actionCreator" time="0.001">
+    </testcase>
+    <testcase classname="bindActionCreators throws for a primitive actionCreator" name="bindActionCreators throws for a primitive actionCreator" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\compose.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:06" time="0.621" tests="6">
+    <testcase classname="Utils compose composes from right to left" name="Utils compose composes from right to left" time="0.003">
+    </testcase>
+    <testcase classname="Utils compose composes functions from right to left" name="Utils compose composes functions from right to left" time="0.001">
+    </testcase>
+    <testcase classname="Utils compose throws at runtime if argument is not a function" name="Utils compose throws at runtime if argument is not a function" time="0.05">
+    </testcase>
+    <testcase classname="Utils compose can be seeded with multiple arguments" name="Utils compose can be seeded with multiple arguments" time="0.001">
+    </testcase>
+    <testcase classname="Utils compose returns the first given argument if given no functions" name="Utils compose returns the first given argument if given no functions" time="0.001">
+    </testcase>
+    <testcase classname="Utils compose returns the first function if given only one" name="Utils compose returns the first function if given only one" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="test\typescript.spec.js" errors="0" failures="0" skipped="0" timestamp="2019-07-29T13:44:00" time="37.675" tests="1">
+    <testcase classname="TypeScript definitions should compile against index.d.ts" name="TypeScript definitions should compile against index.d.ts" time="33.447">
+    </testcase>
+  </testsuite>
+</testsuites>
