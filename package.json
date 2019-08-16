@@ -41,7 +41,7 @@
         "test": "jest",
         "test:watch": "npm test -- --watch",
         "test:cov": "npm test -- --coverage",
-        "test:covout": "jest --coverage --coverageDirectory=test-results/coverage/jest",
+        "test:covout": "jest --coverage --coverageDirectory=coverage",
         "build": "rollup -c",
         "examples:lint": "eslint examples",
         "examples:test": "cross-env CI=true babel-node examples/testAll.js"
