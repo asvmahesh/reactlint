@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: circleci/node:8-jessie-browsers-legacy
     working_directory: ~/fww-web
-    environment:
-      CC_TEST_REPORTER_ID: 4e3f216ef04f652fcf6f1e073aeeb12b3f209429adfcd75d4e0cb94f76a9edeb	
+  #  environment:
+  #    CC_TEST_REPORTER_ID: 4e3f216ef04f652fcf6f1e073aeeb12b3f209429adfcd75d4e0cb94f76a9edeb	
 
     steps:
       - checkout
