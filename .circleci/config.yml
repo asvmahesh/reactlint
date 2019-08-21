@@ -32,13 +32,23 @@ jobs:
                    npm run test:covout || true
                    
                   ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
-             
+
+  hold:
+    docker:
+      - image: circleci/node:8-jessie-browsers-legacy
+    working_directory: ~/fww-web
+    steps:
+      - run: echo "buildtriggered by ${CIRCLE_USERNAME}"    
             
 workflows:
   version: 2
   build_accept_deploy:
     jobs:
       - build
+      - hold: 
+            type: approval
+            requires:
+                - build
 
 
 #version: 2.1
