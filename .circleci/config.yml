@@ -25,14 +25,14 @@ jobs:
                   curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
                   chmod +x ./cc-test-reporter
 
-      #- run:
-      #    name: Code Coverage
-      #    command: |
-      #            ./cc-test-reporter before-build
-      #             npm run test:covout
-      #             
-      #            ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
-      #            
+      - run:
+          name: Code Coverage
+          command: |
+                  ./cc-test-reporter before-build
+                   npm run test:covout
+                   
+                  ./cc-test-reporter after-build -t lcov -p /home/circleci/fww-web --exit-code $?
+                 
   test_hold:
     docker:
       - image: circleci/node:8-jessie-browsers-legacy
