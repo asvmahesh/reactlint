@@ -49,6 +49,10 @@ workflows:
             type: approval
             requires:
                 - build
+            filters:
+                branches:
+                    only:
+                        - /*lop/
  
 
 #version: 2.1
