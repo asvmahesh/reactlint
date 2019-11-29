@@ -53,7 +53,7 @@ workflows:
                 branches:
                     only : 
                         - development
-                        - /.*-R1/
+                        - /.*R1/
                    # ignore:
                     #    - /.*-R1/
                     #only:
