@@ -53,12 +53,19 @@ workflows:
                 branches:
                     only : 
                         - development
-                        - /.*R1/
+                    #    - /.*R1/
                    # ignore:
                     #    - /.*-R1/
                     #only:
                     #    - /.*-R1/
- 
+       - hold: 
+            type: approval
+            requires:
+                - build
+            filters:
+                branches:
+                    ignore:
+                        - /.*R1/
 
 #version: 2.1
 #commands:
