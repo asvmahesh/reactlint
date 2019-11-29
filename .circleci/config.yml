@@ -53,9 +53,9 @@ workflows:
                 branches:
                     only : 
                         - development
-                       # - /.*-R1/
-                    ignore:
                         - /.*-R1/
+                   # ignore:
+                    #    - /.*-R1/
                     #only:
                     #    - /.*-R1/
  
