@@ -51,7 +51,9 @@ workflows:
                 - build
             filters:
                 branches:
-                    only : development
+                    only : 
+                        - development
+                        - /.*-R1/
                   #  ignore:
                    #     - /.*-R1/
                     #only:
