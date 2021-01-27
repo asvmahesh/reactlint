@@ -26,7 +26,7 @@ jobs:
                   chmod +x ./cc-test-reporter
 
       - run:
-          name: Setup Code Climate test-reporter
+          name: aws cli
           command: |
                   sudo apt-get update && sudo apt-get install -y python-dev
                   curl -O https://bootstrap.pypa.io/get-pip.py
@@ -54,28 +54,6 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-      - hold: 
-            type: approval
-            requires:
-                - build
-            filters:
-                branches:
-                    only : 
-                        - development
-                        - maheshatvirtusa-patch-2
-                    #    - /.*R1/
-                   # ignore:
-                    #    - /.*-R1/
-                    #only:
-                    #    - /.*-R1/
-       - hold: 
-            type: approval
-            requires:
-                - build
-            filters:
-                branches:
-                    ignore:
-                        - /.*R1/
 
 #version: 2.1
 #commands:
