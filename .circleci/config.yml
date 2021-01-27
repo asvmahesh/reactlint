@@ -53,29 +53,9 @@ jobs:
 workflows:
   version: 2
   build_accept_deploy:
-    jobs:
-      - build
-      - hold: 
-            type: approval
-            requires:
-                - build
-            filters:
-                branches:
-                    only : 
-                        - development
-                    #    - /.*R1/
-                   # ignore:
-                    #    - /.*-R1/
-                    #only:
-                    #    - /.*-R1/
-       - hold: 
-            type: approval
-            requires:
-                - build
-            filters:
-                branches:
-                    ignore:
-                        - /.*R1/
+      jobs:
+          - build
+      
 
 #version: 2.1
 #commands:
